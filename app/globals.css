@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* TurboData Brand Colors */
+  --primary-blue: #0056D2;
+  --primary-blue-hover: #0047B3;
+  --cyan-accent: #00C8FF;
+  --purple-accent: #6B2FD9;
+  --dark-bg: #08102B;
+  --dark-card: #0E1A3A;
+  --dark-border: #1C2E5A;
+  --near-black: #1A1A2E;
+  --light-bg: #F5F7FF;
+  --border-light: #E8ECF5;
+  
+  /* Semantic tokens */
+  --background: #FFFFFF;
+  --foreground: #1A1A2E;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A2E;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A2E;
+  --primary: #0056D2;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5F7FF;
+  --secondary-foreground: #1A1A2E;
+  --muted: #F5F7FF;
+  --muted-foreground: #64748b;
+  --accent: #00C8FF;
+  --accent-foreground: #1A1A2E;
+  --destructive: #ef4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #E8ECF5;
+  --input: #E8ECF5;
+  --ring: #0056D2;
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --font-sans: var(--font-plus-jakarta-sans), system-ui, sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  
+  /* Brand colors */
+  --color-primary-blue: var(--primary-blue);
+  --color-primary-blue-hover: var(--primary-blue-hover);
+  --color-cyan-accent: var(--cyan-accent);
+  --color-purple-accent: var(--purple-accent);
+  --color-dark-bg: var(--dark-bg);
+  --color-dark-card: var(--dark-card);
+  --color-dark-border: var(--dark-border);
+  --color-near-black: var(--near-black);
+  --color-light-bg: var(--light-bg);
+  --color-border-light: var(--border-light);
+  
+  /* Semantic colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
