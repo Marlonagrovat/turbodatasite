@@ -8,7 +8,7 @@ import { Menu, X } from "lucide-react"
 function TurboDataLogo() {
   return (
     <Link href="/" className="flex items-center">
-  <img src="/logo-colour.png" alt="TurboData Analytics" style={{height: '36px', width: 'auto'}} />
+  <img src="/logo-colour.png" alt="TurboData Analytics" style={{height: '48px', width: 'auto'}} />
 </Link>
   )
 }
