@@ -7,9 +7,9 @@ export function AboutFounder() {
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column - Photo */}
+          {/ Left Column - Photo /}
           <div className="relative flex justify-center lg:justify-start">
-            {/* Decorative background element */}
+            {/ Decorative background element /}
             <div 
               className="absolute top-4 -left-4 lg:left-8 w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] lg:w-[400px] lg:h-[400px] rounded-full border-[3px] border-cyan-accent/15"
               aria-hidden="true"
@@ -19,11 +19,10 @@ export function AboutFounder() {
               aria-hidden="true"
             />
             
-            {/* Profile Image */}
+            {/ Profile Image /}
             <div className="relative z-10">
               <Image
                 src="/founder.jpeg
-                alt="Nkemjika Jude Okeke - Founder of TurboData Analytics"
                 width={420}
                 height={420}
                 className="w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] aspect-square object-cover rounded-2xl"
@@ -32,7 +31,7 @@ export function AboutFounder() {
             </div>
           </div>
 
-          {/* Right Column - Text Content */}
+          {/ Right Column - Text Content /}
           <div className="lg:pl-4">
             <p className="text-[12px] font-medium uppercase tracking-[0.1em] text-cyan-accent mb-4">
               About the Founder
@@ -44,7 +43,7 @@ export function AboutFounder() {
             
             <div className="space-y-5 text-[17px] leading-[1.75] text-[#3A3A4A]">
               <p>
-                I am Nkemjika (Jude) Okeke — a business analytics and transformation consultant with a career built across logistics, manufacturing, banking, and FMCG in some of West Africa&apos;s most demanding operating environments, including First Aluminum Nigeria, a Rio Tinto Alcan subsidiary.
+                I am Nkemjika Jude Okeke — a business analytics and transformation consultant with a career built across logistics, manufacturing, banking, and FMCG in some of West Africa&apos;s most demanding operating environments, including First Aluminum Nigeria, a Rio Tinto Alcan subsidiary.
               </p>
               
               <p>
@@ -60,7 +59,7 @@ export function AboutFounder() {
               </p>
             </div>
 
-            {/* Credential Badges */}
+            {/ Credential Badges /}
             <div className="flex flex-wrap gap-3 mt-8">
               <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#F0F2F8] text-[#1A1A2E] text-sm font-medium border border-[#E0E4F0]">
                 MBA · Quantic School of Business
@@ -73,7 +72,7 @@ export function AboutFounder() {
               </span>
             </div>
 
-            {/* CTA Link */}
+            {/ CTA Link /}
             <a 
               href="#contact" 
               className="inline-flex items-center gap-2 mt-8 text-cyan-accent font-semibold hover:underline underline-offset-4 transition-all"
