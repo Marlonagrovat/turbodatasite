@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import { Check } from "lucide-react"
 import emailjs from "@emailjs/browser"
 const benefits = [
@@ -17,7 +17,7 @@ export function LeadMagnet() {
     fullName: "",
     email: "",
     industry: "",
-    const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit =async (e: React.FormEvent) => {
   e.preventDefault()
   if (!formData.consent) {
     setError("Please accept the privacy policy to continue.")
