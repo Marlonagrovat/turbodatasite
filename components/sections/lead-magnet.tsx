@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import { Check } from "lucide-react"
 import emailjs from "@emailjs/browser"
+
 const benefits = [
   "A 5-section business diagnostic framework",
   "Key questions your financial statements aren't asking",
@@ -17,54 +18,11 @@ export function LeadMagnet() {
     fullName: "",
     email: "",
     industry: "",
-  const handleSubmit =async (e: React.FormEvent) => {
-  e.preventDefault()
-  if (!formData.consent) {
-    setError("Please accept the privacy policy to continue.")
-    return
-  }
-  setIsLoading(true)
-  setError("")
+    consent: false,
+  })
 
-  try {
-    // Step 1 — Send to Formspree to capture and store the contact
-    const formspreeResponse = await fetch("https://formspree.io/f/mvzveezk", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        fullName: formData.fullName,
-        email: formData.email,
-        industry: formData.industry,
-        _subject: "New Audit Download — TurboData Analytics",
-      }),
-    })
-
-    if (!formspreeResponse.ok) {
-      throw new Error("Formspree failed")
-    }
-
-    // Step 2 — Send auto-reply email via EmailJS
-    await emailjs.send(
-      "service_upeajqf",
-      "template_6a1zn9h",
-      {
-        to_name: formData.fullName,
-        to_email: formData.email,
-        industry: formData.industry,
-      },
-      "Kh9M3U3vyCpzb_xJY"
-    )
-
-    setIsSubmitted(true)
-    setFormData({ fullName: "", email: "", industry: "", consent: false })
-
-  } catch (err) {
-  console.error("Submission error:", err)
-  setError("Something went wrong. Please try again.")
-} finally {
-    setIsLoading(false)
-  }
-}
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
     if (!formData.consent) {
       setError("Please accept the privacy policy to continue.")
       return
@@ -73,25 +31,37 @@ export function LeadMagnet() {
     setError("")
 
     try {
-      const response = await fetch("https://formspree.io/f/mvzveezk", {
+      const formspreeResponse = await fetch("https://formspree.io/f/mvzveezk", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           fullName: formData.fullName,
           email: formData.email,
           industry: formData.industry,
-          _replyto: formData.email,
           _subject: "New Audit Download — TurboData Analytics",
         }),
       })
 
-      if (response.ok) {
-        setIsSubmitted(true)
-        setFormData({ fullName: "", email: "", industry: "", consent: false })
-      } else {
-        setError("Something went wrong. Please try again.")
+      if (!formspreeResponse.ok) {
+        throw new Error("Formspree failed")
       }
-    } catch {
+
+      await emailjs.send(
+        "service_upeajqf",
+        "template_6a1zn9h",
+        {
+          to_name: formData.fullName,
+          to_email: formData.email,
+          industry: formData.industry,
+        },
+        "Kh9M3U3vyCpzb_xJY"
+      )
+
+      setIsSubmitted(true)
+      setFormData({ fullName: "", email: "", industry: "", consent: false })
+
+    } catch (err) {
+      console.error("Submission error:", err)
       setError("Something went wrong. Please try again.")
     } finally {
       setIsLoading(false)
@@ -102,7 +72,6 @@ export function LeadMagnet() {
     <section id="lead-magnet" className="py-24 bg-dark-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
           <div>
             <p className="text-[12px] font-medium uppercase tracking-[0.1em] text-cyan-accent mb-4">
               Free Resource
@@ -128,7 +97,6 @@ export function LeadMagnet() {
             </div>
           </div>
 
-          {/* Right — Form */}
           <div className="bg-background rounded-2xl p-8 shadow-lg">
             {isSubmitted ? (
               <div className="text-center py-8">
